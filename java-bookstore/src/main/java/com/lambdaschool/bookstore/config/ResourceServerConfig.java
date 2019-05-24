@@ -35,10 +35,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
                                    "/configuration/security", // swagger
                                    "/swagger-ui.html",        // swagger
                                    "/webjars/**"              // swagger
-                        ).permitAll()
+                        ).permitAll().antMatchers("/**").authenticated()
                 // hasAnyRole can be a list of roles as in "ADMIN", "DATA"
                 .antMatchers("/roles", "/actuator/**").hasAnyRole("ADMIN")
-                .antMatchers("/**").authenticated()
+                .antMatchers("/book/**").hasAnyRole("USER, DATA, ADMIN")
+                .antMatchers("/authors/**").hasAnyRole("USER, DATA, ADMIN")
+                .antMatchers("/data/**").hasAnyRole("DATA, ADMIN")
             .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
 
         // http.requiresChannel().anyRequest().requiresSecure();
