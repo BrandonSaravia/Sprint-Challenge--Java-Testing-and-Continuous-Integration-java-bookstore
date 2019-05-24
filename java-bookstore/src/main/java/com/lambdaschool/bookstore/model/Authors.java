@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "authors")
-public class Authors {
+public class Authors extends Auditable{
 
     private static final Logger logger = LoggerFactory.getLogger(Authors.class);
 

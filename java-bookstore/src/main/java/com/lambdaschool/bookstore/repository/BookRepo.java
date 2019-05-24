@@ -14,7 +14,7 @@ public interface BookRepo extends CrudRepository<Book, Long>, PagingAndSortingRe
     @Query(value = "DELETE FROM bookauthors WHERE bookid = :bookid", nativeQuery = true)
     void deleteCourseFrombookauthors(long bookid);
 
-    @Query(value = "Insert INTO bookauthors(authorid, bookid) values(:authorid, :bookid)", nativeQuery = true)
+    @Query(value = "INSERT INTO bookauthors(authorid, bookid) values(:authorid, :bookid)", nativeQuery = true)
     void assignBookToAuthor(long authorid, long bookid);
 
 }

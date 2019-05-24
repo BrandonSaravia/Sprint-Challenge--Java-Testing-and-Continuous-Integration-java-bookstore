@@ -8,9 +8,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book extends Auditable {
 
     private static final Logger logger = LoggerFactory.getLogger(Book.class);
 
